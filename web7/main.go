@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/tuckersGo/goWeb/web6/myapp"
+	"github.com/tuckersGo/goWeb/web7/myapp"
 )
 
 func main() {
