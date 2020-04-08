@@ -8,10 +8,10 @@ import (
 )
 
 type User struct {
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	Email     string    `json:"email"`
-	CreatedAt time.Time `json:"created_at"`
+	FirstName string
+	LastName  string
+	Email     string
+	CreatedAt time.Time
 }
 
 type fooHandler struct{}
@@ -24,12 +24,6 @@ func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Bad Request: ", err)
 		return
 	}
-	user.CreatedAt = time.Now()
-
-	data, _ := json.Marshal(user)
-	w.Header().Add("content-type", "application/json")
-	w.WriteHeader(http.StatusCreated)
-	fmt.Fprint(w, string(data))
 }
 
 func barHandler(w http.ResponseWriter, r *http.Request) {
