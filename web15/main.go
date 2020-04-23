@@ -48,6 +48,7 @@ func googleAuthCallback(w http.ResponseWriter, r *http.Request) {
 	if r.FormValue("state") != oauthstate.Value {
 		log.Printf("invalid google oauth state cookie:%s state:%s\n", oauthstate.Value, r.FormValue("state"))
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+		return
 	}
 
 	data, err := getGoogleUserInfo(r.FormValue("code"))
